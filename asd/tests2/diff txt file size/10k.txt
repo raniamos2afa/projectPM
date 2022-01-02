@@ -1,0 +1,406 @@
+Chapter 3
+ Unsorted & Sorted List
+1.The Unsorted List ADT is to be extended with a Boolean member function, IsThere, which takes as a parameter an item of type ItemType and determines whether there is an element with this key in the list.
+a.	Write the specifications for this function.
+b.	Write the prototype for this function.
+c.	Write the function definition using an array-based implementation.
+d.	Write the function definition using a linked implementation.
+e.	Describe this function in terms of Big-O.
+A solution:
+Specification for lsThere function is as follows: 
+Function: Determines whether list contains the key item. 
+Precondition : List has been initialized. Key member of item is initialized. 
+Postconditions : If there is an element whose key matches with item's key then it returns true, otherwise returns false.
+B  Solution :
+bool IsThere(ItemType );
+C Solution :
+bool IsThere(ItemType item)
+	{
+		int location = 0;
+		bool found = false;
+		while ( location < length)
+		{
+			if (item.ComparedTo(info[location]) == EQUAL)
+			{
+				found = true;
+				break;
+			}
+			location++;
+		}
+		return found;
+	}
+--------------------test function-----------------------------------
+void main()
+{
+//creat unsorted list
+	UnsortedType list1;
+	ItemType item;
+	item.Initialize(2);
+	list1.PutItem(item);
+	item.Initialize(5);
+	list1.PutItem(item);
+	item.Initialize(7);
+	list1.PutItem(item);
+	item.Initialize(10);
+	list1.PutItem(item);
+	item.Initialize(8);
+	list1.PutItem(item);
+	//test isthere function 
+	item.Initialize(10);
+	cout << list1.IsThere(item) << endl;
+	item.Initialize(50);
+	cout << list1.IsThere(item)<<endl;
+	//
+}
+D Solution:
+bool IsThere(ItemType item)
+	{
+		NodeType* location = listData;
+		bool found = false;
+		while (location != NULL)
+		{
+			if (item.ComparedTo(location->info) == EQUAL)
+			{
+				found = true;
+				break;
+			}
+			location=location->next;
+		}
+		return found;
+	}
+E Solution :
+The loop in both of  the implementations of the functional work in O (N)
+
+2.The sorted List ADT is to be extended with a Boolean member function, IsThere, which takes as a parameter an item of type ItemType and determines whether there is an element with this key in the list.
+a.	Write the specifications for this function.
+b.	Write the prototype for this function.
+c.	Write the function definition using an array-based implementation.
+d.	Write the function definition using a linked implementation.
+e.	Describe this function in terms of Big-O.
+A,B are Solved in P1
+C solution:
+	bool IsThere(ItemType item)
+	{
+		int midPoint;
+		int first = 0;
+		int last = length - 1;
+		bool found = false;
+
+		bool moreToSearch = first <= last;
+		
+		while (moreToSearch && !found)
+		{
+			midPoint = (first + last) / 2;
+			switch (item.ComparedTo(info[midPoint]))
+			{
+			case LESS: last = midPoint - 1;
+				moreToSearch = first <= last;
+				break;
+			case GREATER: first = midPoint + 1;
+				moreToSearch = first <= last;
+				break;
+			case EQUAL: found = true;
+				item = info[midPoint];
+				break;
+			}
+		}
+		
+		return found;
+	}
+D solution:
+bool isThere(ItemType item)
+{
+	bool moreToSearch;
+	NodeType* location;
+
+	location = listData;
+	bool found = false;
+	moreToSearch = (location != NULL);
+
+	while (moreToSearch && !found)
+	{
+		switch (item.ComparedTo(location->info))
+		{
+		case GREATER: location = location->next;
+			moreToSearch = (location != NULL);
+			break;
+		case EQUAL:   found = true;
+			item = location->info;
+			break;
+		case LESS:    moreToSearch = false;
+			break;
+		}
+	}
+	return found;
+}
+E solution 
+complixty of binary search is O(log n).
+
+4.rather than enhanced the UnSorted List by adding a member function  IsThere, you decided  to write a client function to do the same task.
+a.	Write the specifications for this function.
+b.	Write the function definition .
+c.	Describe this function in terms of Big-O.
+d.	Compare between the client function and member function (P1).
+B solution:
+
+bool isThere(ItemType item,UnsortedType list)
+{
+	int location = 0;
+	bool found = false;
+	list.ResetList();
+	while (location < list.GetLength())
+	{
+		if (item.ComparedTo(list.GetNextItem()) == EQUAL)
+		{
+			found = true;
+			break;
+		}
+		location++;
+	}
+	return found;
+}
+
+  
+A solution
+SortedType MergeLists(SortedType, SortedType)
+
+B solution
+
+SortedType MergeLists(SortedType list1, SortedType list2)
+{
+	SortedType list3;
+	int location = 0;
+	list1.ResetList();
+	list2.ResetList();
+	while (location < list1.GetLength())
+	{
+		list3.PutItem(list1.GetNextItem());
+		location++;
+	}
+	location = 0;
+	while (location < list2.GetLength())
+	{
+		list3.PutItem(list2.GetNextItem());
+		location++;
+	}
+	return list3;
+
+}
+ 	
+SortedType MergeLists(SortedType secList)
+	{
+		SortedType newList;
+		int i = 0;
+		int j = 0;
+		int k = 0;
+		
+		while (i<length && j<secList.length)
+		{
+			if (info[i].ComparedTo(secList.info[i])==LESS)
+				newList.info[k++] = info[i++];
+			else
+				newList.info[k++] = secList.info[j++];
+			
+		}
+		// Store remaining elements of first array 
+		while (i < length)
+			newList.info[k++] = info[i++];
+
+		// Store remaining elements of second array 
+		while (j < secList.length)
+			newList.info[k++] = secList.info[j++];
+		newList.length = k;
+		return newList;
+
+	}
+--------------------------test function------------------
+SortedType list1;
+	ItemType item;
+	item.Initialize(2);
+	list1.PutItem(item);
+	item.Initialize(5);
+	list1.PutItem(item);
+	item.Initialize(7);
+	list1.PutItem(item);
+	item.Initialize(10);
+	list1.PutItem(item);
+	item.Initialize(8);
+	list1.PutItem(item);
+	SortedType list2;
+	
+	item.Initialize(20);
+	list2.PutItem(item);
+	item.Initialize(50);
+	list2.PutItem(item);
+	item.Initialize(70);
+	list2.PutItem(item);
+	item.Initialize(100);
+	list2.PutItem(item);
+	item.Initialize(80);
+	list2.PutItem(item);
+	//test isthere function 
+	item.Initialize(10);
+	cout << list1.IsThere(item) << endl;
+	item.Initialize(50);
+	cout << list1.IsThere(item) << endl;
+	//
+	int location = 0;
+	SortedType list3 = list1.MergeLists(list2);
+	list3.ResetList();
+	while (location < list3.GetLength())
+	{
+		list3.GetNextItem().Print(cout);
+		cout <<  "  ";
+		location++;
+	}
+ 
+A Solution
+
+void splitLists(UnsortedType list, ItemType item, UnsortedType& list11, UnsortedType& list2)
+	{
+		
+		int i = 0;
+		int j = 0;
+		int k = 0;
+
+		while (i<list.length)
+		{
+			if (info[i].ComparedTo(item) == GREATER)
+				list2.info[k++] = info[i++];
+			else
+				list11.info[j++] = info[i++];
+
+		}
+		
+		list11.length = j;
+		list2.length = k;
+	
+	}
+-------------test function-----------------------------
+void main()
+{
+//creat unsorted list
+	UnsortedType list1;
+	ItemType item;
+	item.Initialize(2);
+	list1.PutItem(item);
+	item.Initialize(5);
+	list1.PutItem(item);
+	item.Initialize(7);
+	list1.PutItem(item);
+	item.Initialize(10);
+	list1.PutItem(item);
+	item.Initialize(8);
+	list1.PutItem(item);
+	
+	UnsortedType list3, list4;
+	item.Initialize(5);
+	list1.splitLists(list1 , item,list3,list4);
+
+	list3.ResetList();
+	int location = 0;
+	while (location < list3.GetLength())
+	{
+		list3.GetNextItem().Print(cout);
+		cout << "  ";
+		location++;
+	}
+	cout << "  *******************************"<<endl;
+	 location = 0;
+	 list4.ResetList();
+	while (location < list4.GetLength())
+	{
+		list4.GetNextItem().Print(cout);
+		cout << "  ";
+		location++;
+	}
+
+	system("pause");
+	
+
+}
+
+E solution
+
+void splitLists(SortedType list, ItemType item, SortedType& list11, SortedType& list2)
+{
+
+	int i = 0;
+	
+	ItemType temp;
+	list.ResetList();
+	while (i<list.GetLength())
+	{
+		temp = list.GetNextItem();
+		if (temp.ComparedTo(item) == GREATER)
+			list2.PutItem(temp);
+		else
+			list11.PutItem(temp);
+		i++;
+
+	}
+
+
+
+}
+------------------------------test  function-------------
+void main()
+{
+	
+	SortedType list1;
+	ItemType item;
+	item.Initialize(2);
+	list1.PutItem(item);
+	item.Initialize(5);
+	list1.PutItem(item);
+	item.Initialize(7);
+	list1.PutItem(item);
+	item.Initialize(10);
+	list1.PutItem(item);
+	item.Initialize(8);
+	list1.PutItem(item);
+	
+	SortedType list4,list5;
+	item.Initialize(5);
+	splitLists(list1, item, list5, list4);
+	list5.ResetList();
+	location = 0;
+	while (location < list5.GetLength())
+	{
+		list5.GetNextItem().Print(cout);
+		cout << "  ";
+		location++;
+	}
+	cout << "******************************" << endl;
+	location = 0;
+	list4.ResetList();
+	while (location < list4.GetLength())
+	{
+		list4.GetNextItem().Print(cout);
+		cout << "  ";
+		location++;
+	}
+	system("pause");
+
+
+}
+ True or False? If you answer False, correct the statement.
+a) An array is a random-access structure.
+Solution :
+True, because you can access every element you want, when you want, independently on what other elements you accessed before or intend to access after.
+b) A sequential list is a random-access structure.
+Solution :
+False, because  it is a collection of items accessible one after another Beginning at the head and ending at the tail. Therefore, you can't  access it's elements directly you have to start from beginning 
+c) A linked list is a random-access structure.
+Solution :
+False, because  you have to start at the top of the list and then move from node to node until you get to the node you want, which is termed sequential access.
+Note that:
+Random-access and sequential access terms have more to do with how elements are stored.
+Random Access - Is self explanatory in the sense you can access elements without worrying about how they are stored. The cost of accessing the element is always constant(independent of number of elements)
+Sequntial Access - You need to traverse a list to access a particular object. Depending on how the elements are stored will affect the way you access it. The cost in this case may vary from 1(case when ur searching for first element) or 'n'(case when ur searching for last element)
+	================================================================
+
+
+Good Luck 
+
+

@@ -1,0 +1,40 @@
+C:\Users\SAYTECH\Desktop\Steganography\SteganographyProc\bin\Debug\SteganographyProc.exe.config
+C:\Users\SAYTECH\Desktop\Steganography\SteganographyProc\bin\Debug\SteganographyProc.exe
+C:\Users\SAYTECH\Desktop\Steganography\SteganographyProc\bin\Debug\SteganographyProc.pdb
+C:\Users\SAYTECH\Desktop\Steganography\SteganographyProc\obj\Debug\SteganographyProc.csprojResolveAssemblyReference.cache
+C:\Users\SAYTECH\Desktop\Steganography\SteganographyProc\obj\Debug\SteganographyProc.Properties.Resources.resources
+C:\Users\SAYTECH\Desktop\Steganography\SteganographyProc\obj\Debug\SteganographyProc.csproj.GenerateResource.Cache
+C:\Users\SAYTECH\Desktop\Steganography\SteganographyProc\obj\Debug\SteganographyProc.exe
+C:\Users\SAYTECH\Desktop\Steganography\SteganographyProc\obj\Debug\SteganographyProc.pdb
+C:\Users\SAYTECH\Desktop\Steganography\SteganographyProc\obj\Debug\SteganographyProc.baseCombo2.resources
+C:\Users\SAYTECH\Desktop\Steganography\SteganographyProc\obj\Debug\SteganographyProc.histogram.resources
+D:\master\2019\Steganography -fib\SteganographyProc\bin\Debug\SteganographyProc.exe.config
+D:\master\2019\Steganography -fib\SteganographyProc\obj\Debug\SteganographyProc.exe
+D:\master\2019\Steganography -fib\SteganographyProc\obj\Debug\SteganographyProc.pdb
+D:\master\2019\Steganography -fib\SteganographyProc\bin\Debug\SteganographyProc.exe
+D:\master\2019\Steganography -fib\SteganographyProc\bin\Debug\SteganographyProc.pdb
+D:\master\2019\Steganography -fib\SteganographyProc\obj\Debug\SteganographyProc.csprojResolveAssemblyReference.cache
+D:\master\2019\Steganography -fib\SteganographyProc\obj\Debug\SteganographyProc.baseCombo2.resources
+D:\master\2019\Steganography -fib\SteganographyProc\obj\Debug\SteganographyProc.histogram.resources
+D:\master\2019\Steganography -fib\SteganographyProc\obj\Debug\SteganographyProc.Properties.Resources.resources
+D:\master\2019\Steganography -fib\SteganographyProc\obj\Debug\SteganographyProc.csproj.GenerateResource.Cache
+D:\master\2019\Steganography -3\SteganographyProc\bin\Debug\SteganographyProc.exe.config
+D:\master\2019\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.exe
+D:\master\2019\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.pdb
+D:\master\2019\Steganography -3\SteganographyProc\bin\Debug\SteganographyProc.exe
+D:\master\2019\Steganography -3\SteganographyProc\bin\Debug\SteganographyProc.pdb
+D:\master\2019\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.csprojResolveAssemblyReference.cache
+D:\master\2019\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.baseCombo2.resources
+D:\master\2019\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.histogram.resources
+D:\master\2019\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.Properties.Resources.resources
+D:\master\2019\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.csproj.GenerateResource.Cache
+D:\Dr Adel\asd\Steganography -3\SteganographyProc\bin\Debug\SteganographyProc.exe.config
+D:\Dr Adel\asd\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.exe
+D:\Dr Adel\asd\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.pdb
+D:\Dr Adel\asd\Steganography -3\SteganographyProc\bin\Debug\SteganographyProc.exe
+D:\Dr Adel\asd\Steganography -3\SteganographyProc\bin\Debug\SteganographyProc.pdb
+D:\Dr Adel\asd\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.csprojResolveAssemblyReference.cache
+D:\Dr Adel\asd\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.baseCombo2.resources
+D:\Dr Adel\asd\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.histogram.resources
+D:\Dr Adel\asd\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.Properties.Resources.resources
+D:\Dr Adel\asd\Steganography -3\SteganographyProc\obj\Debug\SteganographyProc.csproj.GenerateResource.Cache

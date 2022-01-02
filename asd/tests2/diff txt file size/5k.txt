@@ -1,0 +1,109 @@
+
+This uses the notation of the 'Edinburgh style' Prologs.
+(For the moment we assume an underlying floating point
+decimal arithmetic with two significant places.)
+The predicate 'is' assumes its righthand side is an arithmetic
+statement, computes its value, and unifies the result with its lefthand side.
+In this case the entire sequence succeeds, however, there are some serious 
+problems.
+.pp
+In a pure logic program the order of statements should be irrelevant to
+the correctness of the result (at worst termination or efficiency might be
+affected).  This is not true of the example above.  The direction of execution
+of 'is' is strictly one way so that
+.sp
+	Y = 0.45, Z = 0.30, Z is X*Y
+.sp
+will deliver an error when X is found to be uninstantiated inside 'is'.
+.pp
+The second problem is that the answer Z = 0.30 is incorrect!\ 
+The correct infinite precision answer is Z = 0.3015.  This inaccuracy
+is caused by the finite precision implemented in the floating point
+arithmetic of modern computers.
+It becomes very problematic to say what if anything it means when
+Z is bound to 0.30 by 'is'.  This problem is exacerbated by long sequences
+of arithmetic operations where the propagation of such errors can lead the
+final result to have little or no resemblence to the correct answer.
+.pp
+This is further class of errors, which is illustrated by the fact that the
+following two sequences will both succeed if the underlying arithmetic rounds:
+.sp
+	X = 0.66, Y = 0.45, Z = 0.30, Z is X*Y
+.br
+	X = 0.67, Y = 0.45, Z = 0.30, Z is X*Y
+.sp
+This means that even if some invertable form of arithmetic were devised
+capable of binding X when:
+.sp
+	Y = 0.45, Z = 0.30, Z is X*Y
+.sp
+it is unclear which value should be given to it.
+.pp
+The problem then, is to implement arithmetic in as logical a manner
+as possible while still making use of efficient floating point arithmetic.
+The solution to this problem has three major parts.
+The first is to represent PROLOG's 
+arithmetic variables internally as intervals of real numbers.
+So the result of 'Z is 0.45*0.67' would be to bind Z to the 
+open interval (0.30,0.31).  
+This says that Z lies somewhere in the interval
+$0.30 < Z < 0.31$, which is certainly true, and probably as informative
+as possible given finite precision arithmetic.
+(Note that Z is NOT bound to the data structure (0.30,0.31), this
+is a hidden representation in much the same way that pointers are used
+to implement logical variables in PROLOG but are not explicitly visible
+to the user.  Throughout this paper brackets such as (...) or [...] will
+be used to represent open and closed intervals not Prolog data structures.)
+.pp
+The second part of the solution is to translate expressions such as
+\&'Z is (X*Y)/2' to the relational form 'multiply(X,Y,T0), multiply(2,Z,T0)'.
+Note that both the * and / operators have been translated to 'multiply'
+(with parameters in a different order).  This relational form will be seen to 
+be insensitive to which parameters are instantiated and which are not,
+thus providing invertibility.
+.pp
+The third part is to provide a small number of control 'predicates' able
+to guide the search for solutions.
+The resulting system is sufficiently powerful to be able to
+solve equations such as '0 is X*(X-2)+1' directly.
+.pp
+The next section gives a somewhat more formal description of arithmetic
+implemented this way.  Section III gives examples of its use and of the
+types of equations that are soluble within it.  Section IV compares our 
+approach here with that of other interval arithmetic systems and with
+constraint networks.  Section V notes some possibilities for a parallel 
+dataflow implementation which avoids many of the difficulties of traditional
+dataflow execution.
+.sh "II. Interval Representation"
+.pp
+Define $II(RR)$ to be the set of intervals over the real numbers, $RR$.
+So that the lower and upper bounds of each interval can be operated on as 
+single entities they will be treated as pairs of values.  
+Each value having an attribute of being open or closed 
+and an associated number.  For example the interval (0.31,0.33] will be
+treated as the the pair $lo 0.31$ and $hi 0.33$.  
+The brackets are superscripted to minimize visual confusion when writeing 
+bounds not in pairs.
+As well as the usual real numbers 
+$- inf$ and $inf$, will be used as part of bounds,
+with the properties that $ALL x mo RR~- inf < x < inf$ 
+The set of all upper bounds is defined as:
+.sp
+	$H(RR)~==~\{ x sup b : x mo RR union \{ inf \},~b mo \{ hi , ho \} \} $
+.sp
+and the set of lower bounds as:
+.sp
+	$L(RR)~==~\{ \& sup b x : x mo RR union \{ -inf \},~b mo \{ li , lo \} \} $
+.sp
+The set of all intervals is then defined by:
+.sp
+	$II(RR)~==~L(RR) times H(RR)$
+.sp
+Using this notation rather loosely intervals will be identified 
+with the apropriate subset of the reals.  For example the following 
+identifications will be made:
+.sp
+	$[0.31,15)~=~< li 0.31, ho 15 >~=~ \{ x mo RR: 0.31 <= x < 15 \}$
+.br
+	$[-inf,inf]~=~< li -inf , hi inf> ~=~ RR$
+

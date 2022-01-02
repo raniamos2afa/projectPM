@@ -1,0 +1,4 @@
+Write a C class that can be used to transform a mathematical expression from infix notation to Reverse Polish notation Test your class by writing a RPN Calculator 
+Suppose we wanted to convert a mathematical expression into a reverse polish notation expression to evaluate the answer This is called an infix expression To convert it (to be able to evaluate the expression as well)
+, we will use 
+

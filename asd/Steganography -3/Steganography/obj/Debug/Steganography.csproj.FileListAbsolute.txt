@@ -1,0 +1,6 @@
+C:\Users\SAYTECH\Desktop\Steganography\Steganography\bin\Debug\Steganography.exe.config
+C:\Users\SAYTECH\Desktop\Steganography\Steganography\bin\Debug\Steganography.exe
+C:\Users\SAYTECH\Desktop\Steganography\Steganography\bin\Debug\Steganography.pdb
+C:\Users\SAYTECH\Desktop\Steganography\Steganography\obj\Debug\Steganography.csprojResolveAssemblyReference.cache
+C:\Users\SAYTECH\Desktop\Steganography\Steganography\obj\Debug\Steganography.exe
+C:\Users\SAYTECH\Desktop\Steganography\Steganography\obj\Debug\Steganography.pdb

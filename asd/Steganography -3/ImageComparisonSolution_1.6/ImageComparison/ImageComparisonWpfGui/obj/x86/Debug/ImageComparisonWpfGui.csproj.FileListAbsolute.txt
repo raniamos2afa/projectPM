@@ -1,0 +1,14 @@
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\bin\Debug\ImageComparisonWpfGui.exe
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\bin\Debug\ImageComparisonWpfGui.pdb
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\bin\Debug\XnaFan.ImageComparison.dll
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\bin\Debug\XnaFan.ImageComparison.pdb
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\obj\x86\Debug\ImageComparisonWpfGui.csprojResolveAssemblyReference.cache
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\obj\x86\Debug\MainWindow.baml
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\obj\x86\Debug\MainWindow.g.cs
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\obj\x86\Debug\App.g.cs
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\obj\x86\Debug\ImageComparisonWpfGui_MarkupCompile.cache
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\obj\x86\Debug\ImageComparisonWpfGui.g.resources
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\obj\x86\Debug\ImageComparisonWpfGui.Properties.Resources.resources
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\obj\x86\Debug\ImageComparisonWpfGui.csproj.GenerateResource.Cache
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\obj\x86\Debug\ImageComparisonWpfGui.exe
+D:\Dr Adel\asd\Steganography -3\ImageComparisonSolution_1.6\ImageComparison\ImageComparisonWpfGui\obj\x86\Debug\ImageComparisonWpfGui.pdb
